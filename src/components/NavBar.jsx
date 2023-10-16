@@ -10,38 +10,51 @@ import {
 } from "@chakra-ui/react";
 import { ChevronDownIcon } from "@chakra-ui/icons";
 import CartWidget from "./CartWidget";
+import { Link } from "react-router-dom";
 import brand from "../assets/gbc-logo.png";
 
 const NavBar = () => {
     return (
         <Flex minWidth="max-content" alignItems="center" gap="2" p="5">
             <Box>
-                <img src={brand} alt="Logo" width="100px" height="100px" />
+                <Link to={"/"}>
+                    <img src={brand} alt="" width="100px" height="100px" />
+                </Link>
             </Box>
             <Spacer />
             <Box>
                 <Menu>
-                    <Button>Todos</Button>
-
                     <MenuButton as={Button} rightIcon={<ChevronDownIcon />}>
                         Menu
                     </MenuButton>
                     <MenuList>
-                        <MenuItem>GB</MenuItem>
+                        <Link to={`/category/${"GB"}`}>
+                            <MenuItem>GB</MenuItem>
+                        </Link>
 
-                        <MenuItem>GBC</MenuItem>
+                        <Link to={`/category/${"GBC"}`}>
+                            <MenuItem>GBC</MenuItem>
+                        </Link>
 
-                        <MenuItem>GBA</MenuItem>
+                        <Link to={`/category/${"GBA"}`}>
+                            <MenuItem>GBA</MenuItem>
+                        </Link>
 
-                        <MenuItem>GBA SP</MenuItem>
+                        <Link to={`/category/${"GBASP"}`}>
+                            <MenuItem>GBA SP</MenuItem>
+                        </Link>
 
-                        <MenuItem>NDS</MenuItem>
+                        <Link to={`/category/${"NDS"}`}>
+                            <MenuItem>NDS</MenuItem>
+                        </Link>
                     </MenuList>
                 </Menu>
             </Box>
             <Spacer />
             <Box>
-                <CartWidget />
+                <Link to={"cart"}>
+                    <CartWidget />
+                </Link>
             </Box>
         </Flex>
     );
